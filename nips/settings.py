@@ -25,7 +25,7 @@ SECRET_KEY = 'bessf1m@g*+9_=^)c0kmhcq#hm5a7e6j&v^ej^uayb#*^a2ol7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['']
 
 
 # Application definition
@@ -133,4 +133,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+import dj_databese_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
